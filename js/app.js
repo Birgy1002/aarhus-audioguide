@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderGuide(guideData) {
   const container = document.getElementById("guide-container");
 
-  guideData.forEach((entry) => {
+  guideData.forEach((entry, index) => {
     const card = document.createElement("div");
     card.className = "bg-white rounded-2xl shadow-md p-4 mb-6";
 
     const title = document.createElement("h2");
     title.className = "text-lg font-semibold text-blue-800 mb-2";
-    title.textContent = entry.title;
+    title.textContent = index === 0
+      ? entry.title
+      : `Station ${index}: ${entry.title}`;
 
     const image = document.createElement("img");
     image.src = entry.image;
@@ -46,7 +48,6 @@ function renderMap(guideData) {
     attribution: '&copy; OpenStreetMap-Mitwirkende',
   }).addTo(map);
 
-  // Bounds-Objekt einmalig außerhalb der Schleife erstellen
   const bounds = L.latLngBounds([]);
 
   guideData.forEach((entry, index) => {
@@ -57,15 +58,19 @@ function renderMap(guideData) {
     const marker = L.marker(entry.coords, {
       icon: L.divIcon({
         className: "custom-div-icon",
-        html: `<div style="background-color:#427898;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;">${index + 1}</div>`,
+        html: `<div style="background-color:#427898;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;">${index}</div>`,
         iconSize: [28, 28],
         iconAnchor: [14, 14],
       }),
     }).addTo(map);
 
-    marker.bindPopup(`<strong>Station ${index + 1}</strong><br>${entry.title}`);
+    // Nur Nummern ab Station 1 numerieren
+    if (index > 0) {
+      marker.bindPopup(`<strong>Station ${index}</strong><br>${entry.title}`);
+    } else {
+      marker.bindPopup(`${entry.title}`);
+    }
   });
 
-  // Karte auf alle Marker zentrieren
   map.fitBounds(bounds, { padding: [30, 30] });
 }
