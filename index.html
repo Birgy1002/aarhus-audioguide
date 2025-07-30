@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarhus Ø Audioguide</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind-Konfiguration: CI-Farben + Barlow -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ci: {
+              blue: "#427898",
+              sand: "#c6b79b"
+            }
+          },
+          fontFamily: {
+            sans: ['Barlow', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Font: Barlow -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+  />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <div class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- Karte: oben auf Mobile, links auf Desktop -->
+    <div class="h-64 lg:h-auto lg:w-1/3 border-b lg:border-b-0 lg:border-r">
+      <div id="map" class="h-full w-full"></div>
+    </div>
+
+    <!-- Inhalt (Kapitel) -->
+    <div class="flex-1 p-6 space-y-8 overflow-y-auto">
+      <h1 class="text-3xl font-extrabold text-ci-sand mb-6">Aarhus Ø Audioguide</h1>
+
+      <!-- ✨ Wichtig: Container für die Inhalte (von app.js) -->
+      <div id="guide-container" class="space-y-8">
+        <!-- JS füllt hier die Kapitel -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+  <!-- App-Logik -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>
