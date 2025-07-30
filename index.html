@@ -36,23 +36,27 @@
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     crossorigin=""
   />
+
+  <!-- 🟡 PWA: Manifest + Theme -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c6b79b" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
 
   <div class="flex flex-col lg:flex-row min-h-screen">
 
-    <!-- Karte: oben auf Mobile, links auf Desktop -->
+    <!-- Karte -->
     <div class="h-64 lg:h-auto lg:w-1/3 border-b lg:border-b-0 lg:border-r">
       <div id="map" class="h-full w-full"></div>
     </div>
 
-    <!-- Inhalt (Kapitel) -->
+    <!-- Inhalt -->
     <div class="flex-1 p-6 space-y-8 overflow-y-auto">
       <h1 class="text-3xl font-extrabold text-ci-sand mb-6">Aarhus Ø Audioguide</h1>
 
-      <!-- ✨ Wichtig: Container für die Inhalte (von app.js) -->
       <div id="guide-container" class="space-y-8">
-        <!-- JS füllt hier die Kapitel -->
+        <!-- Kapitel werden per JS eingefügt -->
       </div>
     </div>
   </div>
@@ -62,5 +66,14 @@
 
   <!-- App-Logik -->
   <script src="js/app.js" defer></script>
+
+  <!-- 🟡 PWA: Service Worker Registrierung -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("✅ Service Worker registriert"))
+        .catch(err => console.error("❌ Service Worker Fehler", err));
+    }
+  </script>
 </body>
 </html>
