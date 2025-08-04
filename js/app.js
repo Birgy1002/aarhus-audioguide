@@ -18,7 +18,7 @@ function renderGuide(guideData) {
     title.className = "text-lg font-semibold text-blue-800 mb-2";
     title.textContent = index === 0
       ? entry.title
-      : `Station ${index}: ${entry.title}`;
+      : `Station ${index}: ${entry.title}`; // index == 0 = Einleitung
 
     const image = document.createElement("img");
     image.src = entry.image;
@@ -64,12 +64,11 @@ function renderMap(guideData) {
       }),
     }).addTo(map);
 
-    // Nur Nummern ab Station 1 numerieren
-    if (index > 0) {
-      marker.bindPopup(`<strong>Station ${index}</strong><br>${entry.title}`);
-    } else {
-      marker.bindPopup(`${entry.title}`);
-    }
+    const popupTitle = index === 0
+      ? entry.title
+      : `Station ${index}<br>${entry.title}`;
+
+    marker.bindPopup(`<strong>${popupTitle}</strong>`);
   });
 
   map.fitBounds(bounds, { padding: [30, 30] });

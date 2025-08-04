@@ -8,56 +8,56 @@
   },
   {
     "id": 1,
-    "title": "Station 1: Manderup – Ein Ort für den Blick nach vorn",
+    "title": "Manderup – Ein Ort für den Blick nach vorn",
     "image": "images/station1.jpg",
     "audio": "audio/station1.mp3",
     "coords": [56.164187, 10.223688]
   },
   {
     "id": 2,
-    "title": "Station 2: Isbjerget – Wohnen im Eis",
+    "title": "Isbjerget – Wohnen im Eis",
     "image": "images/station2.jpg",
     "audio": "audio/station2.mp3",
     "coords": [56.164920, 10.230152]
   },
   {
     "id": 3,
-    "title": "Station 3: Lighthouse – Leben mit Weitblick",
+    "title": "Lighthouse – Leben mit Weitblick",
     "image": "images/station3.jpg",
     "audio": "audio/station3.mp3",
     "coords": [56.165634, 10.232001]
   },
   {
     "id": 4,
-    "title": "Station 4: AARhus – Wellen aus Ziegeln und Grün",
+    "title": "AARhus – Wellen aus Ziegeln und Grün",
     "image": "images/station4.jpg",
     "audio": "audio/station4.mp3",
     "coords": [56.162813, 10.228562]
   },
   {
     "id": 5,
-    "title": "Station 5: Uhrgebäude – Struktur mit Augenzwinkern",
+    "title": "Uhrgebäude – Struktur mit Augenzwinkern",
     "image": "images/station5.jpg",
     "audio": "audio/station5.mp3",
     "coords": [56.163937, 10.227062]
   },
   {
     "id": 6,
-    "title": "Station 6: Nicolinehus – Die kleine Stadt in der Stadt",
+    "title": "Nicolinehus – Die kleine Stadt in der Stadt",
     "image": "images/station6.jpg",
     "audio": "audio/station6.mp3",
     "coords": [56.164720, 10.222780]
   },
   {
     "id": 7,
-    "title": "Station 7: Die Harbor Pavilions – kleine Räume, große Wirkung",
+    "title": "Die Harbor Pavilions – kleine Räume, große Wirkung",
     "image": "images/station7.jpg",
     "audio": "audio/station7.mp3",
     "coords": [56.162437, 10.228312]
   },
   {
     "id": 8,
-    "title": "Station 8: Hafenbad – Schwimmen mit Skyline",
+    "title": "Hafenbad – Schwimmen mit Skyline",
     "image": "images/station8.jpg",
     "audio": "audio/station8.mp3",
     "coords": [56.163812, 10.225062]
